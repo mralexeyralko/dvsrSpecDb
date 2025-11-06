@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load bulma_tags %}
+
+{% block page_content %}
+
+
+
+<div class="column is-one-third-widescreen is-offset-one-third-widescreen">
+    <div class="box">
+<section class="section">
+    <div class="container">
+      <h1 class="title">        
+ 
+      <h2 class="subtitle">
+          <div class="column">
+        <div class="box"> 
+        <table>
+          <form id="GetName" name="GetName" action="/employee/" method="post">
+            <div class="select is-info is-small is-success is-centered">
+              <select id="GetName" name="GetName">
+                <option>Choose container length:</option>
+                {% for c in containerId%}
+                <option value="{{ c.containerLength }} "> {{ c.containerLength }} </option>
+                {% endfor %}
+              </select>            
+                {% csrf_token %}
+                {{ form }}
+                <button name="get_name" type="submit" method="submit" class="button is-primary is-small is-centered">Get data</button>
+              
+          </form> 
+            
+
+            
+</div><br>
+
+
+<!-- {% for subject, grade in grades.items %}
+    <tr>
+        <td>{{ subject|capfirst }}</td>
+        <td>{{ grade }}</td>
+    </tr>
+{% endfor %} -->
+
+      </table>
+      </h2></div>
+    </div></div>
+  </section>
+  </div></div>
+
+
+  
+
+
+
+
+
+          
+  
+  
+{% endblock %}
+
+

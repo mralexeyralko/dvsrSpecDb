@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load bulma_tags %}
+
+{% block page_content %}
+
+
+
+<div class="column is-one-third-widescreen is-offset-one-third-widescreen">
+    <div class="box">
+<section class="section">
+    <div class="container">
+      <h1 class="title">        
+ 
+      <h2 class="subtitle">
+          <div class="column">
+        <div class="box"> 
+
+<!-- высота {{ form.containerLength }}м контейнера {{ containerHeight }}мм ширина - {{ containerWidth }}мм. -->
+<table>
+
+{% for q in query %}
+<tr><td> высота {{ q.containerLength }}м контейнера {{ q.containerHeight }}мм ширина - {{ q.containerWidth }}мм.</td></tr>
+{% endfor %}
+</table>
+</div><br>
+
+
+
+
+
+      </h2></div>
+    </div></div>
+  </section>
+  </div></div>
+
+
+  
+
+
+
+
+
+          
+  
+  
+{% endblock %}
+
+
