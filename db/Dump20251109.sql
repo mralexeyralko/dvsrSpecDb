@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.44, for Win64 (x86_64)
 --
--- Host: localhost    Database: spec_shema
+-- Host: localhost    Database: dvsr_spec
 -- ------------------------------------------------------
 -- Server version	8.0.44
 
@@ -82,7 +82,7 @@ CREATE TABLE `auth_permission` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`),
   CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,7 +91,7 @@ CREATE TABLE `auth_permission` (
 
 LOCK TABLES `auth_permission` WRITE;
 /*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
-INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can view log entry',1,'view_logentry'),(5,'Can add site',2,'add_site'),(6,'Can change site',2,'change_site'),(7,'Can delete site',2,'delete_site'),(8,'Can view site',2,'view_site'),(9,'Can add permission',3,'add_permission'),(10,'Can change permission',3,'change_permission'),(11,'Can delete permission',3,'delete_permission'),(12,'Can view permission',3,'view_permission'),(13,'Can add group',4,'add_group'),(14,'Can change group',4,'change_group'),(15,'Can delete group',4,'delete_group'),(16,'Can view group',4,'view_group'),(17,'Can add user',5,'add_user'),(18,'Can change user',5,'change_user'),(19,'Can delete user',5,'delete_user'),(20,'Can view user',5,'view_user'),(21,'Can add content type',6,'add_contenttype'),(22,'Can change content type',6,'change_contenttype'),(23,'Can delete content type',6,'delete_contenttype'),(24,'Can view content type',6,'view_contenttype'),(25,'Can add session',7,'add_session'),(26,'Can change session',7,'change_session'),(27,'Can delete session',7,'delete_session'),(28,'Can view session',7,'view_session'),(29,'Can add container',8,'add_container'),(30,'Can change container',8,'change_container'),(31,'Can delete container',8,'delete_container'),(32,'Can view container',8,'view_container');
+INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can view log entry',1,'view_logentry'),(5,'Can add site',2,'add_site'),(6,'Can change site',2,'change_site'),(7,'Can delete site',2,'delete_site'),(8,'Can view site',2,'view_site'),(9,'Can add permission',3,'add_permission'),(10,'Can change permission',3,'change_permission'),(11,'Can delete permission',3,'delete_permission'),(12,'Can view permission',3,'view_permission'),(13,'Can add group',4,'add_group'),(14,'Can change group',4,'change_group'),(15,'Can delete group',4,'delete_group'),(16,'Can view group',4,'view_group'),(17,'Can add user',5,'add_user'),(18,'Can change user',5,'change_user'),(19,'Can delete user',5,'delete_user'),(20,'Can view user',5,'view_user'),(21,'Can add content type',6,'add_contenttype'),(22,'Can change content type',6,'change_contenttype'),(23,'Can delete content type',6,'delete_contenttype'),(24,'Can view content type',6,'view_contenttype'),(25,'Can add session',7,'add_session'),(26,'Can change session',7,'change_session'),(27,'Can delete session',7,'delete_session'),(28,'Can view session',7,'view_session'),(29,'Can add container',8,'add_container'),(30,'Can change container',8,'change_container'),(31,'Can delete container',8,'delete_container'),(32,'Can view container',8,'view_container'),(33,'Can add osn10m view',9,'add_osn10mview'),(34,'Can change osn10m view',9,'change_osn10mview'),(35,'Can delete osn10m view',9,'delete_osn10mview'),(36,'Can view osn10m view',9,'view_osn10mview');
 /*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,7 +125,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$1000000$XE3cJVqVySKq7emZ2ZH3Oq$T9gUU8iCbwqS4YfoHf76hT4sdY9dPwTZL63uD3CPzmg=','2025-11-05 14:20:52.946400',1,'ram','','','alextutya@gmail.com',1,1,'2025-11-05 14:20:29.759831');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$600000$KdfK7skKLPQTcw9P0q45x5$ZN/bwRtVcpqUdzuLKz95MTIF7CXmOwR7zQHiHOuErUI=','2025-11-07 18:29:32.657139',1,'ram','','','alextutya@gmail.com',1,1,'2025-11-05 14:20:29.759831');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,6 +183,30 @@ CREATE TABLE `auth_user_user_permissions` (
 LOCK TABLES `auth_user_user_permissions` WRITE;
 /*!40000 ALTER TABLE `auth_user_user_permissions` DISABLE KEYS */;
 /*!40000 ALTER TABLE `auth_user_user_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `constr_pr_types`
+--
+
+DROP TABLE IF EXISTS `constr_pr_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `constr_pr_types` (
+  `idConstr_pr_types` int NOT NULL,
+  `Type` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idConstr_pr_types`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `constr_pr_types`
+--
+
+LOCK TABLES `constr_pr_types` WRITE;
+/*!40000 ALTER TABLE `constr_pr_types` DISABLE KEYS */;
+INSERT INTO `constr_pr_types` VALUES (1,'Профиль квадратный'),(2,'Профиль прямоугольный'),(3,'Швеллер'),(4,'Уголок горячекатанный');
+/*!40000 ALTER TABLE `constr_pr_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -258,7 +282,7 @@ CREATE TABLE `django_content_type` (
   `model` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -267,7 +291,7 @@ CREATE TABLE `django_content_type` (
 
 LOCK TABLES `django_content_type` WRITE;
 /*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
-INSERT INTO `django_content_type` VALUES (1,'admin','logentry'),(4,'auth','group'),(3,'auth','permission'),(5,'auth','user'),(6,'contenttypes','contenttype'),(8,'dvsr','container'),(7,'sessions','session'),(2,'sites','site');
+INSERT INTO `django_content_type` VALUES (1,'admin','logentry'),(4,'auth','group'),(3,'auth','permission'),(5,'auth','user'),(6,'contenttypes','contenttype'),(8,'dvsr','container'),(9,'dvsr','osn10mview'),(7,'sessions','session'),(2,'sites','site');
 /*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -319,7 +343,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('0u5o6ivpwn5q9qhy6qz2qer54vb1qobg','.eJxVjMsOwiAQRf-FtSE8WgZcuvcbyAwwUjU0Ke3K-O_apAvd3nPOfYmI21rj1ssSpyzOQovT70aYHqXtIN-x3WaZ5rYuE8ldkQft8jrn8rwc7t9BxV6_dQE76sTARKSMMtkab4EH9oHBBEc6-ARuUKgtjYTFAYRg2TBopX0W7w_Z3DdU:1vGeNY:6obDCU_OZxoHODiZD0Fd_yOfEO8iVJu1j6G2b_hbK84','2025-11-19 14:20:52.954991');
+INSERT INTO `django_session` VALUES ('0u5o6ivpwn5q9qhy6qz2qer54vb1qobg','.eJxVjMsOwiAQRf-FtSE8WgZcuvcbyAwwUjU0Ke3K-O_apAvd3nPOfYmI21rj1ssSpyzOQovT70aYHqXtIN-x3WaZ5rYuE8ldkQft8jrn8rwc7t9BxV6_dQE76sTARKSMMtkab4EH9oHBBEc6-ARuUKgtjYTFAYRg2TBopX0W7w_Z3DdU:1vGeNY:6obDCU_OZxoHODiZD0Fd_yOfEO8iVJu1j6G2b_hbK84','2025-11-19 14:20:52.954991'),('jy82rdgk1cs69c5jnlbelvfkyp2yue22','.eJxVjEsOwiAUAO_C2pDHt9Sl-56B8HggVQNJaVfGuxuSLnQ7M5k38-HYiz962vxK7MoEu_wyDPGZ6hD0CPXeeGx131bkI-Gn7XxplF63s_0blNDL2OoMAgQJp4ywkwNJghzOOiDOoLNFgzZE0NIa52iClEEnqYyVEZTT7PMFtDQ2nA:1vHRDI:__najt0mM2KU0NFAumU-AVUKO-8uI5gqy3NoIDK4zW0','2025-11-21 18:29:32.663355');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -384,7 +408,7 @@ DROP TABLE IF EXISTS `edizmer`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `edizmer` (
   `idedizmer` int NOT NULL,
-  `naimenovanie` varchar(45) DEFAULT NULL,
+  `edizmer` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idedizmer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -458,6 +482,50 @@ LOCK TABLES `liststal` WRITE;
 UNLOCK TABLES;
 
 --
+-- Temporary view structure for view `osn_10m_view`
+--
+
+DROP TABLE IF EXISTS `osn_10m_view`;
+/*!50001 DROP VIEW IF EXISTS `osn_10m_view`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `osn_10m_view` AS SELECT 
+ 1 AS `materials_osn_10m`,
+ 1 AS `code1c`,
+ 1 AS `naimenovanie`,
+ 1 AS `type`,
+ 1 AS `gost`,
+ 1 AS `kolichestvo`,
+ 1 AS `edizmer`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `osnovanie_10m`
+--
+
+DROP TABLE IF EXISTS `osnovanie_10m`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `osnovanie_10m` (
+  `materials_osn_10m` int NOT NULL,
+  `naimenovanie_10m` varchar(45) NOT NULL,
+  `kolichestvo` float DEFAULT NULL,
+  PRIMARY KEY (`materials_osn_10m`,`naimenovanie_10m`),
+  KEY `osn_10_naimenovanie_IDX` (`naimenovanie_10m`) /*!80000 INVISIBLE */
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `osnovanie_10m`
+--
+
+LOCK TABLES `osnovanie_10m` WRITE;
+/*!40000 ALTER TABLE `osnovanie_10m` DISABLE KEYS */;
+INSERT INTO `osnovanie_10m` VALUES (1,'8',40),(2,'9',100);
+/*!40000 ALTER TABLE `osnovanie_10m` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `profilestal`
 --
 
@@ -466,16 +534,19 @@ DROP TABLE IF EXISTS `profilestal`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `profilestal` (
   `idprofileStal` int NOT NULL,
-  `code1c` int DEFAULT NULL,
-  `naimenovanie` varchar(45) DEFAULT NULL,
+  `code1c` varchar(65) DEFAULT NULL,
+  `naimenovanie` varchar(65) DEFAULT NULL,
+  `type` int DEFAULT NULL,
   `gost` varchar(45) DEFAULT NULL,
-  `stoimost` varchar(45) DEFAULT NULL,
   `edizmer` int DEFAULT NULL,
   PRIMARY KEY (`idprofileStal`),
-  UNIQUE KEY `code1c_UNIQUE` (`code1c`),
   UNIQUE KEY `naimenovanie_UNIQUE` (`naimenovanie`),
-  KEY `edizmer_idx` (`edizmer`),
-  CONSTRAINT `edizmer` FOREIGN KEY (`edizmer`) REFERENCES `edizmer` (`idedizmer`)
+  KEY `profile_type_idx` (`type`),
+  KEY `code1c_idx` (`code1c`) /*!80000 INVISIBLE */,
+  KEY `gost_idx` (`gost`),
+  KEY `profile_edizmer_idx` (`edizmer`),
+  CONSTRAINT `profile_edizmer_idx` FOREIGN KEY (`edizmer`) REFERENCES `edizmer` (`idedizmer`),
+  CONSTRAINT `profile_type` FOREIGN KEY (`type`) REFERENCES `constr_pr_types` (`idConstr_pr_types`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -485,6 +556,7 @@ CREATE TABLE `profilestal` (
 
 LOCK TABLES `profilestal` WRITE;
 /*!40000 ALTER TABLE `profilestal` DISABLE KEYS */;
+INSERT INTO `profilestal` VALUES (1,'00-00025267','Швеллер горячекатанный 16U',3,'ГОСТ 8240-97',1),(2,'00-00024040','Швеллер горячекатанный 14U',3,'ГОСТ 8240-97',1),(3,'0','Швеллер горячекатанный 12U',3,'ГОСТ 8240-97',1),(4,'0','Профиль квадратный 150x150x5',1,'ГОСТ 8645-68 09Г2С',1),(5,'0','Профиль квадратный 100x100x5',1,'ГОСТ 30245-2003 / 10 ГОСТ 1050-2013',1),(6,'0','Профиль квадратны 50x50x3',1,'ГОСТ 30245-2003 / 10 ГОСТ 1050-2013',1),(7,'0','Профиль прямоугольный 200x100x5',2,'ГОСТ 8645-68 09Г2С',1),(8,'00-00036679','Профиль прямоугольный 150x100x5',2,'ГОСТ 8645-68 09Г2С',1),(9,'00-00020238','Профиль прямоугольный 100x50x4',2,'ГОСТ 30245-2003 / 10 ГОСТ 1050-2013',1),(10,'0','Профиль прямоугольный 80x40x3',2,'ГОСТ 30245-2003 / 10 ГОСТ 1050-2013',1),(11,'0','Профиль прямоугольный 60x30x2',2,'ГОСТ 30245-2003 / 10 ГОСТ 1050-2013',1),(12,'0','Профиль прямоугольный 40x20x2',2,'ГОСТ 30245-2003 / 10 ГОСТ 1050-2013',1),(13,'00-00032279','Уголок 100x100x7',4,'ГОСТ 8509-93 / Ст0 ГОСТ 535-2005',1),(14,'00-00026032','Уголок 75x75x5',4,'ГОСТ 8509-93 / Ст0 ГОСТ 535-2005',1),(15,'0','Уголок 50x50x3',4,'ГОСТ 8509-93 / Ст0 ГОСТ 535-2005',1);
 /*!40000 ALTER TABLE `profilestal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -510,6 +582,24 @@ LOCK TABLES `trubi` WRITE;
 /*!40000 ALTER TABLE `trubi` DISABLE KEYS */;
 /*!40000 ALTER TABLE `trubi` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Final view structure for view `osn_10m_view`
+--
+
+/*!50001 DROP VIEW IF EXISTS `osn_10m_view`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `osn_10m_view` AS select `osnovanie_10m`.`materials_osn_10m` AS `materials_osn_10m`,`profilestal`.`code1c` AS `code1c`,`profilestal`.`naimenovanie` AS `naimenovanie`,`constr_pr_types`.`Type` AS `type`,`profilestal`.`gost` AS `gost`,`osnovanie_10m`.`kolichestvo` AS `kolichestvo`,`edizmer`.`edizmer` AS `edizmer` from (((`osnovanie_10m` join `profilestal` on((`osnovanie_10m`.`naimenovanie_10m` = `profilestal`.`idprofileStal`))) join `edizmer` on((`profilestal`.`edizmer` = `edizmer`.`idedizmer`))) left join `constr_pr_types` on((`profilestal`.`type` = `constr_pr_types`.`idConstr_pr_types`))) order by `osnovanie_10m`.`materials_osn_10m` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -520,4 +610,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-11-06 14:42:07
+-- Dump completed on 2025-11-09 21:46:08

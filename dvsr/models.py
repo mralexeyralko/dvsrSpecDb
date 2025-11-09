@@ -11,6 +11,23 @@ class Container(models.Model):
         managed = False
         db_table = 'container'
 
+
+class Osn10mView(models.Model):
+    materials_osn_10m = models.IntegerField(primary_key=True)
+    code1c = models.CharField(max_length=255)
+    naimenovanie = models.CharField(max_length=255)
+    type = models.CharField(max_length=255)  # тип профиля
+    gost = models.CharField(max_length=255)
+    kolichestvo = models.IntegerField()
+    edizmer = models.CharField(max_length=50)
+    
+    class Meta:
+        managed = False  # важно! Django не будет 
+        db_table = 'osn_10m_view'
+
+    # def _str_(self):
+    #     return f"{self.naimenovanie} - {self.kolichestvo} {self.edizmer}"
+
 # class Employerxpo(models.Model):
 #     oid = models.AutoField(db_column='OID', primary_key=True)  # Field name made lowercase.
 #     lastname = models.CharField(db_column='LastName', max_length=100, blank=True, null=True)  # Field name made lowercase.

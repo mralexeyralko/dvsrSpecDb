@@ -5,7 +5,7 @@
 
 
 
-<div class="column is-one-third-widescreen is-offset-one-third-widescreen">
+<div class="column is-four-fifths is-narrow-widescreen">
     <div class="box">
 <section class="section">
     <div class="container">
@@ -15,13 +15,40 @@
           <div class="column">
         <div class="box"> 
 
-<!-- высота {{ form.containerLength }}м контейнера {{ containerHeight }}мм ширина - {{ containerWidth }}мм. -->
-<table>
 
-{% for q in query %}
-<tr><td> высота {{ q.containerLength }}м контейнера {{ q.containerHeight }}мм ширина - {{ q.containerWidth }}мм.</td></tr>
-{% endfor %}
-</table>
+
+
+        
+
+          <h4 class="title is-4">Спецификация материалов</h4>
+          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+              
+                  <!-- <tr>
+                      <th>Код 1С</th>
+                      <th>Наименование</th>
+                      <th>Тип</th>
+                      <th>Количество</th>
+                      <th>Ед.изм.</th>
+                  </tr> -->
+              
+             
+                  {% for c in container_spec %}
+                  <tbody
+                  <tr><div class="content is-small">
+                    <td>
+                      {{ c.materials_osn_10m }}</td><td>
+                      {{ c.code1c }}</td><td>
+                      {{ c.naimenovanie }}</td><td>
+                      {{ c.type }}</td><td>
+                      {{ c.kolichestvo }}</td><td>
+                      {{ c.edizmer }}</td></div>
+                  </tr></tbody>
+                  {% endfor %}
+              
+          </table>
+          
+
+
 </div><br>
 
 
