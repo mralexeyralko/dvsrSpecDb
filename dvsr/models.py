@@ -25,6 +25,32 @@ class Osn10mView(models.Model):
         managed = False  # важно! Django не будет 
         db_table = 'osn_10m_view'
 
+class Roof10mView(models.Model):
+    materials_roof_10m = models.IntegerField(primary_key=True)
+    code1c = models.CharField(max_length=255)
+    naimenovanie = models.CharField(max_length=255)
+    type = models.CharField(max_length=255)  # тип профиля
+    gost = models.CharField(max_length=255)
+    kolichestvo = models.IntegerField()
+    edizmer = models.CharField(max_length=50)
+    
+    class Meta:
+        managed = False  # важно! Django не будет 
+        db_table = 'roof_10m_view'
+
+
+class Korpus10mView(models.Model):
+    materials_korpus_10m = models.IntegerField(primary_key=True)
+    code1c = models.CharField(max_length=255)
+    naimenovanie = models.CharField(max_length=255)
+    type = models.CharField(max_length=255)  # тип профиля
+    gost = models.CharField(max_length=255)
+    kolichestvo = models.IntegerField()
+    edizmer = models.CharField(max_length=50)
+    
+    class Meta:
+        managed = False  # важно! Django не будет 
+        db_table = 'korpus_10m_view'
     # def _str_(self):
     #     return f"{self.naimenovanie} - {self.kolichestvo} {self.edizmer}"
 

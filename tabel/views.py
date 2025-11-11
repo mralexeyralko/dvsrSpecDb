@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 # from dvsr.models import Employerxpo, TabelDataView, Event1Xpo
-from dvsr.models import Container, Osn10mView
+from dvsr.models import Container, Osn10mView, Roof10mView, Korpus10mView
 
 from dvsr.models import Container
 from django_pandas.io import read_frame
@@ -25,7 +25,9 @@ def get_name(request):
             formList = form.rsplit(" ")
             empNumberFromList = str(formList[0])
             query = Container.objects.all().filter(containerLength = empNumberFromList)
-            container_spec = Osn10mView.objects.all() 
+            container_base = Osn10mView.objects.all() 
+            container_roof = Roof10mView.objects.all()
+            container_korpus = Korpus10mView.objects.all()
             # df = read_frame(query)
             # print(df)
             # df.to_csv('dataframe.csv', encoding='utf-8-sig', index=False)
@@ -34,8 +36,12 @@ def get_name(request):
             # containerLength = models.IntegerField(db_column='ContainerLength')
             # containerWidth = models.IntegerField(db_column='ContainerWidth')
             # containerHeight = models.IntegerField(db_column='ContainerHeight')
-            context = {'form': form, 'query': query, 'container_spec': container_spec}
-            # ", 'df': df}"
+            context = {'form': form,
+                    'query': query, 
+                    'container_base': container_base, 
+                    'container_roof': container_roof, 
+                    'container_korpus': container_korpus}
+
             return render(request, 'employee.html', context)
 
 # def manageDataFrame(dataframe):

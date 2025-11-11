@@ -15,26 +15,21 @@
           <div class="column">
         <div class="box"> 
 
+      
 
-
-
-        
-
-          <h4 class="title is-4">Спецификация материалов</h4>
+          <h4 class="title is-4">Спецификация материалов на контейнер {{ form }}</h4>
           <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
               
-                  <!-- <tr>
-                      <th>Код 1С</th>
-                      <th>Наименование</th>
-                      <th>Тип</th>
-                      <th>Количество</th>
-                      <th>Ед.изм.</th>
-                  </tr> -->
-              
-             
-                  {% for c in container_spec %}
-                  <tbody
-                  <tr><div class="content is-small">
+
+                  
+                  
+                  
+                    
+                  
+                    <tbody><tr><td colspan="6">Металл</td></tr>
+                    <tr><h5 class="title is-4">Основание</h5></tr>
+                    {% for c in container_base %}
+                    <tr><div class="content is-small"></div>
                     <td>
                       {{ c.materials_osn_10m }}</td><td>
                       {{ c.code1c }}</td><td>
@@ -42,8 +37,37 @@
                       {{ c.type }}</td><td>
                       {{ c.kolichestvo }}</td><td>
                       {{ c.edizmer }}</td></div>
-                  </tr></tbody>
-                  {% endfor %}
+                    {% endfor %}  
+                  </tr>
+                    
+                    <tr><td colspan="6">Крыша</td></tr>
+                    {% for c in container_roof %}
+                    <tr><div class="content is-small"></div>
+                    <td>
+                      {{ c.materials_roof_10m }}</td><td>
+                      {{ c.code1c }}</td><td>
+                      {{ c.naimenovanie }}</td><td>
+                      {{ c.type }}</td><td>
+                      {{ c.kolichestvo }}</td><td>
+                      {{ c.edizmer }}</td></div>
+                    {% endfor %}  
+                  </tr>
+                  
+                    <tr><td colspan="6">Корпус</td></tr>
+                    {% for c in container_korpus %}
+                    <tr><div class="content is-small"></div>
+                    <td>
+                      {{ c.materials_korpus_10m }}</td><td>
+                      {{ c.code1c }}</td><td>
+                      {{ c.naimenovanie }}</td><td>
+                      {{ c.type }}</td><td>
+                      {{ c.kolichestvo }}</td><td>
+                      {{ c.edizmer }}</td></div>
+                    {% endfor %}
+                  </tr>                
+                
+                  </tbody>
+                  
               
           </table>
           
