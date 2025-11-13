@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.44, for Win64 (x86_64)
 --
--- Host: localhost    Database: dvsr_spec
+-- Host: localhost    Database: spec_shema
 -- ------------------------------------------------------
 -- Server version	8.0.44
 
@@ -125,7 +125,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$600000$KdfK7skKLPQTcw9P0q45x5$ZN/bwRtVcpqUdzuLKz95MTIF7CXmOwR7zQHiHOuErUI=','2025-11-07 18:29:32.657139',1,'ram','','','alextutya@gmail.com',1,1,'2025-11-05 14:20:29.759831');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$1000000$VV7RZO8seNXPCUsp1ujHOw$Z6H0bOMag0kRcsYaa+HKSuP/1Wh+q6iyMupR7I43maA=','2025-11-10 05:59:33.222991',1,'ram','','','alextutya@gmail.com',1,1,'2025-11-05 14:20:29.759831');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -343,7 +343,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('0u5o6ivpwn5q9qhy6qz2qer54vb1qobg','.eJxVjMsOwiAQRf-FtSE8WgZcuvcbyAwwUjU0Ke3K-O_apAvd3nPOfYmI21rj1ssSpyzOQovT70aYHqXtIN-x3WaZ5rYuE8ldkQft8jrn8rwc7t9BxV6_dQE76sTARKSMMtkab4EH9oHBBEc6-ARuUKgtjYTFAYRg2TBopX0W7w_Z3DdU:1vGeNY:6obDCU_OZxoHODiZD0Fd_yOfEO8iVJu1j6G2b_hbK84','2025-11-19 14:20:52.954991'),('jy82rdgk1cs69c5jnlbelvfkyp2yue22','.eJxVjEsOwiAUAO_C2pDHt9Sl-56B8HggVQNJaVfGuxuSLnQ7M5k38-HYiz962vxK7MoEu_wyDPGZ6hD0CPXeeGx131bkI-Gn7XxplF63s_0blNDL2OoMAgQJp4ywkwNJghzOOiDOoLNFgzZE0NIa52iClEEnqYyVEZTT7PMFtDQ2nA:1vHRDI:__najt0mM2KU0NFAumU-AVUKO-8uI5gqy3NoIDK4zW0','2025-11-21 18:29:32.663355');
+INSERT INTO `django_session` VALUES ('jy82rdgk1cs69c5jnlbelvfkyp2yue22','.eJxVjEsOwiAUAO_C2pDHt9Sl-56B8HggVQNJaVfGuxuSLnQ7M5k38-HYiz962vxK7MoEu_wyDPGZ6hD0CPXeeGx131bkI-Gn7XxplF63s_0blNDL2OoMAgQJp4ywkwNJghzOOiDOoLNFgzZE0NIa52iClEEnqYyVEZTT7PMFtDQ2nA:1vHRDI:__najt0mM2KU0NFAumU-AVUKO-8uI5gqy3NoIDK4zW0','2025-11-21 18:29:32.663355'),('to0aq7bo6thlw54ls7y1x4ef7cpedbw8','.eJxVjEEOwiAQRe_C2hDagQFcuvcMzQCDVA0kpV0Z765NutDtf-_9l5hoW8u0dV6mOYmzGMTpdwsUH1x3kO5Ub03GVtdlDnJX5EG7vLbEz8vh_h0U6uVbswpesRs0B-8YlfXZEIyorTI4OKcxhpghKzQjoAmZDDifEwIBW0Dx_gDKujcq:1vIKw9:UF5RDyr40Rm66ZPIhqJ-LVSMFqCUdHg68_UIWRsOefs','2025-11-24 05:59:33.228176');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -453,6 +453,50 @@ LOCK TABLES `gpu` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `korpus_10m`
+--
+
+DROP TABLE IF EXISTS `korpus_10m`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `korpus_10m` (
+  `materials_korpus_10m` int NOT NULL,
+  `naimenovanie_10m` varchar(45) NOT NULL,
+  `kolichestvo` float DEFAULT NULL,
+  PRIMARY KEY (`materials_korpus_10m`,`naimenovanie_10m`),
+  KEY `osn_10_naimenovanie_IDX` (`naimenovanie_10m`) /*!80000 INVISIBLE */
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `korpus_10m`
+--
+
+LOCK TABLES `korpus_10m` WRITE;
+/*!40000 ALTER TABLE `korpus_10m` DISABLE KEYS */;
+INSERT INTO `korpus_10m` VALUES (1,'11',32),(2,'13',123),(3,'1',174),(4,'5',203);
+/*!40000 ALTER TABLE `korpus_10m` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `korpus_10m_view`
+--
+
+DROP TABLE IF EXISTS `korpus_10m_view`;
+/*!50001 DROP VIEW IF EXISTS `korpus_10m_view`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `korpus_10m_view` AS SELECT 
+ 1 AS `materials_korpus_10m`,
+ 1 AS `code1c`,
+ 1 AS `naimenovanie`,
+ 1 AS `type`,
+ 1 AS `gost`,
+ 1 AS `kolichestvo`,
+ 1 AS `edizmer`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Table structure for table `liststal`
 --
 
@@ -479,6 +523,32 @@ CREATE TABLE `liststal` (
 LOCK TABLES `liststal` WRITE;
 /*!40000 ALTER TABLE `liststal` DISABLE KEYS */;
 /*!40000 ALTER TABLE `liststal` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `machines`
+--
+
+DROP TABLE IF EXISTS `machines`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `machines` (
+  `idmachines` int NOT NULL,
+  `machine_model` varchar(80) DEFAULT NULL,
+  `machine_manufacturer` varchar(45) DEFAULT NULL,
+  `machine_power` int DEFAULT NULL,
+  PRIMARY KEY (`idmachines`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `machines`
+--
+
+LOCK TABLES `machines` WRITE;
+/*!40000 ALTER TABLE `machines` DISABLE KEYS */;
+INSERT INTO `machines` VALUES (2,'16V4000L64FNER TR','1',2000),(3,'GG8V4000D1','1',1000),(4,'16m33',NULL,1000),(5,'12m33','2',700),(6,'12m33','2',500),(7,'6m33','2',350),(8,'Yuichai 2000','3',2000),(9,'Yuichai 1000','3',1000),(10,'Yuichai 500','3',500),(11,'V-man','4',250),(12,'YAMZ','5',500);
+/*!40000 ALTER TABLE `machines` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -561,6 +631,50 @@ INSERT INTO `profilestal` VALUES (1,'00-00025267','Швеллер горячек
 UNLOCK TABLES;
 
 --
+-- Table structure for table `roof_10m`
+--
+
+DROP TABLE IF EXISTS `roof_10m`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `roof_10m` (
+  `materials_roof_10m` int NOT NULL,
+  `naimenovanie_10m` varchar(45) NOT NULL,
+  `kolichestvo` float DEFAULT NULL,
+  PRIMARY KEY (`materials_roof_10m`,`naimenovanie_10m`),
+  KEY `roof_10_naimenovanie_IDX` (`naimenovanie_10m`) /*!80000 INVISIBLE */
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `roof_10m`
+--
+
+LOCK TABLES `roof_10m` WRITE;
+/*!40000 ALTER TABLE `roof_10m` DISABLE KEYS */;
+INSERT INTO `roof_10m` VALUES (1,'4',40),(2,'8',100),(3,'5',45),(4,'3',17),(6,'1',25);
+/*!40000 ALTER TABLE `roof_10m` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `roof_10m_view`
+--
+
+DROP TABLE IF EXISTS `roof_10m_view`;
+/*!50001 DROP VIEW IF EXISTS `roof_10m_view`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `roof_10m_view` AS SELECT 
+ 1 AS `materials_roof_10m`,
+ 1 AS `code1c`,
+ 1 AS `naimenovanie`,
+ 1 AS `type`,
+ 1 AS `gost`,
+ 1 AS `kolichestvo`,
+ 1 AS `edizmer`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Table structure for table `trubi`
 --
 
@@ -584,6 +698,24 @@ LOCK TABLES `trubi` WRITE;
 UNLOCK TABLES;
 
 --
+-- Final view structure for view `korpus_10m_view`
+--
+
+/*!50001 DROP VIEW IF EXISTS `korpus_10m_view`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `korpus_10m_view` AS select `korpus_10m`.`materials_korpus_10m` AS `materials_korpus_10m`,`profilestal`.`code1c` AS `code1c`,`profilestal`.`naimenovanie` AS `naimenovanie`,`constr_pr_types`.`Type` AS `type`,`profilestal`.`gost` AS `gost`,`korpus_10m`.`kolichestvo` AS `kolichestvo`,`edizmer`.`edizmer` AS `edizmer` from (((`korpus_10m` join `profilestal` on((`korpus_10m`.`naimenovanie_10m` = `profilestal`.`idprofileStal`))) join `edizmer` on((`profilestal`.`edizmer` = `edizmer`.`idedizmer`))) left join `constr_pr_types` on((`profilestal`.`type` = `constr_pr_types`.`idConstr_pr_types`))) order by `korpus_10m`.`materials_korpus_10m` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `osn_10m_view`
 --
 
@@ -600,6 +732,24 @@ UNLOCK TABLES;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `roof_10m_view`
+--
+
+/*!50001 DROP VIEW IF EXISTS `roof_10m_view`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `roof_10m_view` AS select `roof_10m`.`materials_roof_10m` AS `materials_roof_10m`,`profilestal`.`code1c` AS `code1c`,`profilestal`.`naimenovanie` AS `naimenovanie`,`constr_pr_types`.`Type` AS `type`,`profilestal`.`gost` AS `gost`,`roof_10m`.`kolichestvo` AS `kolichestvo`,`edizmer`.`edizmer` AS `edizmer` from (((`roof_10m` join `profilestal` on((`roof_10m`.`naimenovanie_10m` = `profilestal`.`idprofileStal`))) join `edizmer` on((`profilestal`.`edizmer` = `edizmer`.`idedizmer`))) left join `constr_pr_types` on((`profilestal`.`type` = `constr_pr_types`.`idConstr_pr_types`))) order by `roof_10m`.`materials_roof_10m` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -610,4 +760,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-11-09 21:46:08
+-- Dump completed on 2025-11-13 16:31:59
