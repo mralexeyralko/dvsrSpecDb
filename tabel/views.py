@@ -25,15 +25,18 @@ def get_name(request):
             formList = form.rsplit(" ")
             empNumberFromList = str(formList[0])
             query = Container.objects.all().filter(containerLength = empNumberFromList)
-            formStr = str(form)
-            textToEnter = f"Osn{formStr}mView".replace(" ", "")
-            Invoice = apps.get_model(app_label="dvsr", model_name=textToEnter)
 
+            textToModelBase = f"Osn{str(form)}mView".replace(" ", "")
+            osnovanieModel = apps.get_model(app_label="dvsr", model_name=textToModelBase)
+            textToModelRoof = f"Roof{str(form)}mView".replace(" ", "")
+            roofModel = apps.get_model(app_label="dvsr", model_name=textToModelRoof)
+            textToModelRoof = f"Roof{str(form)}mView".replace(" ", "")
+            korpusModel = apps.get_model(app_label="dvsr", model_name=textToModelRoof)
 
-            print(type(Osn10mView))
-            container_base = Invoice.objects.all() 
-            container_roof = Roof10mView.objects.all()
-            container_korpus = Korpus10mView.objects.all()
+            container_base = osnovanieModel.objects.all() 
+            container_roof = roofModel.objects.all()
+            container_korpus = korpusModel.objects.all()
+
             print('это значение переменной form:', form)
             context = {'form': form,
                     'query': query, 
