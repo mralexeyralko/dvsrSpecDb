@@ -30,8 +30,8 @@ def get_name(request):
             osnovanieModel = apps.get_model(app_label="dvsr", model_name=textToModelBase)
             textToModelRoof = f"Roof{str(form)}mView".replace(" ", "")
             roofModel = apps.get_model(app_label="dvsr", model_name=textToModelRoof)
-            textToModelRoof = f"Roof{str(form)}mView".replace(" ", "")
-            korpusModel = apps.get_model(app_label="dvsr", model_name=textToModelRoof)
+            textToModelKorpus = f"Roof{str(form)}mView".replace(" ", "")
+            korpusModel = apps.get_model(app_label="dvsr", model_name=textToModelKorpus)
 
             container_base = osnovanieModel.objects.all() 
             container_roof = roofModel.objects.all()
