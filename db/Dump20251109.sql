@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.44, for Win64 (x86_64)
 --
--- Host: localhost    Database: spec_shema
+-- Host: localhost    Database: dvsr_spec
 -- ------------------------------------------------------
 -- Server version	8.0.44
 
@@ -14,6 +14,34 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `alternators`
+--
+
+DROP TABLE IF EXISTS `alternators`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `alternators` (
+  `idalternators` int NOT NULL,
+  `alternator_model` varchar(45) DEFAULT NULL,
+  `alternator_manufacturer` int DEFAULT NULL,
+  `alternator_power` varchar(45) DEFAULT NULL,
+  `alternator_power_edizmer` int DEFAULT NULL,
+  `alternator_voltage` varchar(45) DEFAULT NULL,
+  `alternator_voltage_edizmer` int DEFAULT NULL,
+  PRIMARY KEY (`idalternators`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `alternators`
+--
+
+LOCK TABLES `alternators` WRITE;
+/*!40000 ALTER TABLE `alternators` DISABLE KEYS */;
+/*!40000 ALTER TABLE `alternators` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `auth_group`
@@ -419,7 +447,7 @@ CREATE TABLE `edizmer` (
 
 LOCK TABLES `edizmer` WRITE;
 /*!40000 ALTER TABLE `edizmer` DISABLE KEYS */;
-INSERT INTO `edizmer` VALUES (1,'м.'),(2,'шт.');
+INSERT INTO `edizmer` VALUES (1,'м.'),(2,'шт.'),(3,'кВт'),(4,'кВ');
 /*!40000 ALTER TABLE `edizmer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -549,6 +577,61 @@ LOCK TABLES `machines` WRITE;
 /*!40000 ALTER TABLE `machines` DISABLE KEYS */;
 INSERT INTO `machines` VALUES (2,'16V4000L64FNER TR','1',2000),(3,'GG8V4000D1','1',1000),(4,'16m33',NULL,1000),(5,'12m33','2',700),(6,'12m33','2',500),(7,'6m33','2',350),(8,'Yuichai 2000','3',2000),(9,'Yuichai 1000','3',1000),(10,'Yuichai 500','3',500),(11,'V-man','4',250),(12,'YAMZ','5',500);
 /*!40000 ALTER TABLE `machines` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `manufacturers`
+--
+
+DROP TABLE IF EXISTS `manufacturers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `manufacturers` (
+  `idmanufacturers` int NOT NULL,
+  `manufacturer_name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idmanufacturers`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `manufacturers`
+--
+
+LOCK TABLES `manufacturers` WRITE;
+/*!40000 ALTER TABLE `manufacturers` DISABLE KEYS */;
+INSERT INTO `manufacturers` VALUES (1,'MTU'),(2,'MAN'),(3,'Baudouin'),(4,'Yuchai'),(5,'Vman'),(6,'ЯМЗ'),(7,'Leroy Sommer'),(8,'Evotec'),(9,NULL);
+/*!40000 ALTER TABLE `manufacturers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `motors`
+--
+
+DROP TABLE IF EXISTS `motors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `motors` (
+  `idmotors` int NOT NULL,
+  `motor_model` varchar(45) DEFAULT NULL,
+  `manufacturer` int NOT NULL,
+  `power` varchar(45) NOT NULL,
+  `power_edizmer` int NOT NULL,
+  PRIMARY KEY (`idmotors`),
+  KEY `motor_manufacturer_key_idx` (`manufacturer`),
+  KEY `power_edizmer_key_idx` (`power_edizmer`),
+  CONSTRAINT `motor_manufacturer_key` FOREIGN KEY (`manufacturer`) REFERENCES `manufacturers` (`idmanufacturers`),
+  CONSTRAINT `power_edizmer_key` FOREIGN KEY (`power_edizmer`) REFERENCES `edizmer` (`idedizmer`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `motors`
+--
+
+LOCK TABLES `motors` WRITE;
+/*!40000 ALTER TABLE `motors` DISABLE KEYS */;
+INSERT INTO `motors` VALUES (1,'-',1,'1000',3),(2,'-',1,'2000',3),(3,'-',1,'2500',3),(4,'L309',2,'500',3),(5,'6m33',3,'350',3),(6,'12m33',3,'500',3),(7,'12m33',3,'700',3),(8,'16m33',3,'1000',3),(9,'-',4,'500',3),(10,'-',4,'1000',3),(11,'-',4,'2000',3),(12,'-',5,'250',3),(13,'-',6,'500',3);
+/*!40000 ALTER TABLE `motors` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -760,4 +843,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-11-13 16:31:59
+-- Dump completed on 2025-12-12 21:09:30
